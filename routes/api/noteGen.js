@@ -20,7 +20,9 @@ idRoute.post('/', (req, res) => {
         };
         const dbGrab = JSON.parse(data)
         dbGrab.push(addNote);
-        fs.writeFile(`./db/db.json`, JSON.stringify())
+        fs.writeFile(`./db/db.json`, JSON.stringify(dbGrab, ``, 4),(err, data) => {
+            !err ? console.log('File Updated.'):console.error(err)
+        })
     })
 });
 
