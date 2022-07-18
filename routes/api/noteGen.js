@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { idGen } = require('../../helpers/idGen');
+const { idGenerator } = require('../../helpers/idGen');
 const idRoute = require("express").Router();
 
 idRoute.get('/', (req, res) => {
@@ -14,7 +14,7 @@ idRoute.post('/', (req, res) => {
     fs.readFile(`./db/db.json`, `utf-8`, (err, data) => {
         !err ? res.status(201).json('Still have greenlight') : console.log(err)
         let addNote = {
-            id : `${idGen()}`,
+            id : `${idGenerator()}`,
             title: `${req.body.title}`,
             text: `${req.body.text}`,
         };
